@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Moje Rozszerzenie",
+  "version": "1.0",
+  "description": "Rozszerzenie testowe.",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "images/icon16.jpg"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["earn.html", "settings.html", "premium.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
