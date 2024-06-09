@@ -176,6 +176,8 @@ function startEarningAlgorithm() {
       console.log('Algorithm stopped.');
       if (failureCount >= 10) {
         alert('10 nieudanych transakcji. Aby ponownie uruchomić algorytm, kliknij przycisk "Zarabiaj" jeszcze raz.');
+      } else {
+        alert('Algorytm zakończył działanie z sukcesem. Możesz ponownie uruchomić algorytm, klikając przycisk "Zarabiaj".');
       }
       return;
     }
@@ -280,3 +282,8 @@ function waitForBalanceChange(initialBalance, targetBalance) {
 if (window.location.href.includes('https://pocketoption.com/')) {
   addAiHelperButton();
 }
+
+
+// TODO: w file storage zapisywać dane o ustawieniach algorytmu m.in. steps, balanceThreshold oraz to czy algorytm rozpoczą dzaiałanie aby zapobiec
+// utracie danych po odświeżeniu strony oraz dublowania uruchomiń algorytmu. 
+// algorytm powinnien wykonywać się jako jeden proces. nie można uruchomić go kilka razy jednocześnie.
