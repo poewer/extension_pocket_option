@@ -174,6 +174,9 @@ function startEarningAlgorithm() {
   function executeStep() {
     if (stepIndex >= steps.length || failureCount >= 10 || stopAlgorithm) {
       console.log('Algorithm stopped.');
+      if (failureCount >= 10) {
+        alert('10 nieudanych transakcji. Aby ponownie uruchomić algorytm, kliknij przycisk "Zarabiaj" jeszcze raz.');
+      }
       return;
     }
 
@@ -205,6 +208,7 @@ function startEarningAlgorithm() {
         } else {
           console.log('Maximum of 10 failures reached. Stopping algorithm.');
           stopAlgorithm = true;
+          alert('10 nieudanych transakcji. Aby ponownie uruchomić algorytm, kliknij przycisk "Zarabiaj" jeszcze raz.');
         }
       })
       .catch((error) => console.error(error));
